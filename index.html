@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Petroleum | Enterprise Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <i class="fa-solid fa-gopuram"></i> <span>AURA PETROLEUM</span>
+        </div>
+        <nav class="navbar">
+            <a href="#home" class="nav-link active" data-page="home">Home</a>
+            <a href="#upstream" class="nav-link" data-page="upstream">Operations</a>
+            <a href="#sustainability" class="nav-link" data-page="sustainability">Sustainability</a>
+            <a href="#dashboard" class="nav-link" data-page="dashboard">Data Hub</a>
+        </nav>
+        <div class="system-status">
+            <span class="indicator online"></span> Grid Online
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <section id="home" class="page-view active">
+            <div class="hero-section">
+                <h1>Powering Global Infrastructure</h1>
+                <p>Advancing traditional energy extraction while pioneering next-generation carbon capture solutions.</p>
+                <a href="#dashboard" class="btn btn-primary metrics-trigger">View Live Field Metrics</a>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-drilling"></i>
+                    <h3>Upstream Excellence</h3>
+                    <p>Optimizing asset lifecycle management across deepwater and onshore operations.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h3>Net-Zero 2050</h3>
+                    <p>Investing heavily in biofuel integration and real-time emissions monitoring tracks.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Digital Twin Tech</h3>
+                    <p>Utilized automated IoT sensor streams to manage pipeline integrity flawlessly.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="upstream" class="page-view">
+            <h2>Global Exploration & Production Assets</h2>
+            <p class="subtitle">Real-time status of active drilling fields and refining operations.</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Asset Identifier</th>
+                        <th>Type</th>
+                        <th>Region</th>
+                        <th>Daily Output</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Aura-Alpha Rig</strong></td>
+                        <td>Offshore Floating Platform</td>
+                        <td>Gulf of Mexico</td>
+                        <td>125,000 bbl/d</td>
+                        <td><span class="badge badge-success">Optimal</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Permian Basin V</strong></td>
+                        <td>Onshore Tight Oil Field</td>
+                        <td>West Texas, USA</td>
+                        <td>84,200 bbl/d</td>
+                        <td><span class="badge badge-success">Optimal</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>North Sea Echo</strong></td>
+                        <td>Deepwater Rig</td>
+                        <td>Aberdeen, UK</td>
+                        <td>0 bbl/d</td>
+                        <td><span class="badge badge-warning">Maintenance</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Raffinerie Delta</strong></td>
+                        <td>Downstream Down-Processing</td>
+                        <td>Rotterdam, NL</td>
+                        <td>210,000 bbl/d</td>
+                        <td><span class="badge badge-success">Optimal</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="sustainability" class="page-view">
+            <div class="split-layout">
+                <div class="split-text">
+                    <h2>ESG & Carbon Mitigation Architecture</h2>
+                    <p>Aura Petroleum acts decisively to lower carbon intensity profiles across our production portfolio. We are actively deploying modern technology to capture carbon emissions directly at the stack source.</p>
+                    
+                    <div class="esg-metric-row">
+                        <div class="esg-stat">
+                            <h4>-24%</h4>
+                            <p>Methane Intensity Since 2023</p>
+                        </div>
+                        <div class="esg-stat">
+                            <h4>$1.2B</h4>
+                            <p>Allocated to Renewables</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-graphic">
+                    <div class="graphic-box">
+                        <h3>Carbon Capture Vector (CCUS)</h3>
+                        <p>CO₂ Interception Efficiency Status:</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 82%;">82% Efficiency</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="page-view">
+            <h2>Operations Data Hub</h2>
+            <div class="dashboard-grid">
+                <div class="chart-card">
+                    <h3>Live Corporate Crude Output (bbl/hr)</h3>
+                    <canvas id="outputChart"></canvas>
+                </div>
+                <div class="control-panel-card">
+                    <h3>System Controller Panel</h3>
+                    <div class="control-stat">
+                        <span>Current System Pressure:</span>
+                        <strong id="pressure-val">1,420 PSI</strong>
+                    </div>
+                    <div class="control-stat">
+                        <span>Refining Flow Rate:</span>
+                        <strong id="flow-val">48.2 L/sec</strong>
+                    </div>
+                    <button class="btn btn-danger" id="emergency-alert-btn">Test Emergency Notification</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toast-notification" class="toast hidden"></div>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Aura Petroleum Media Group. Internal Corporate Web Portal. All Access Logged.</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
+
