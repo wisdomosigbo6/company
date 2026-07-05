@@ -1,2 +1,2 @@
 # company
-is about how company work
+is about how company the work
